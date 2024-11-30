@@ -31,6 +31,6 @@ def main():
 
 if __name__ == '__main__':
     if not h3dd.log_path.endswith(INSPECT_LOG):
-        h3dd.log_path = replace_file_ext(h3dd.log_path, INSPECT_LOG)
+        h3dd.filename_init(fullname=replace_file_ext(h3dd.log_path, INSPECT_LOG))
     h3dd.enable_debug_output()
     main()
