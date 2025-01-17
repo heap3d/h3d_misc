@@ -3,6 +3,7 @@
 	<kit name="h3d_misc_tools" restart="YES">
 		<source target="h3d_misc_tools/index.CFG">index.CFG</source>
 		<source target="h3d_misc_tools/scripts/inspect_selected.py">scripts/inspect_selected.py</source>
+		<source target="h3d_misc_tools/scripts/show_basic_info.py">scripts/show_basic_info.py</source>
 	</kit>
 	<message button="Help">h3d_misc_tools Kit installation complete.</message>
 </package>

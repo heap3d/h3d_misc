@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # ================================
-# (C)2019 Dmytro Holub
+# (C)2019-2024 Dmytro Holub
 # heap3d@gmail.com
 # --------------------------------
 # modo python
