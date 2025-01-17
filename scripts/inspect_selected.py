@@ -15,7 +15,9 @@ INSPECT_LOG = '_inspect.log'
 
 def inspect_graphs(items: list[modo.Item]):
     for item in items:
-        prints(f'{item.name=} {item.id=} {item.type=}')
+        prints(
+            f'{item.name=} {item.id=} {item.type=} {item.parent=} {item.parentIndex=} {item.rootIndex=} {item.index=}'
+        )
         for graphname in item.itemGraphNames:
             prints(f'{graphname=}', 1)
             for idx in item.itemGraph(graphname).connectedItems:

@@ -19,7 +19,7 @@ def main():
 
 
 def basic_item_info(item: modo.Item) -> str:
-    return f'<{item.name}> : <{item.id}> : <{item.type}>'
+    return f'{item.name} : {item.id} : {item.type} {item.parent=} {item.parentIndex=} {item.rootIndex=} {item.index=}>'
 
 
 if __name__ == '__main__':
