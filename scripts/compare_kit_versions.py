@@ -72,13 +72,15 @@ def main():
 def read_kits_info(filepath: str) -> KitsInfo:
     kits_info: KitsInfo = dict()
     with open(filepath) as file:
-        lines = file.readlines()
+        lines = [line.strip() for line in file.readlines()]
     for line in lines:
         name, kit_info = get_kit_info(line)
         if not name:
             continue
         kits_info[name] = kit_info
 
+    if not kits_info:
+        raise ValueError(f'Error reading kits info from the file {filepath}')
     return kits_info
 
 
