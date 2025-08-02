@@ -14,7 +14,7 @@ from typing import Iterable
 
 import modo
 
-from h3d_utilites.scripts.h3d_utils import TagSplit, get_user_value, set_user_value, show_in_explorer
+from h3d_utilites.scripts.h3d_utils import TagSplit, get_user_value, set_user_value, reveal_in_explorer
 
 TS = TagSplit
 
@@ -41,7 +41,7 @@ def main():
     write_kits_info(filepath, kits_info)
 
     print(f'Kits info successfully saved to {filepath}')
-    show_in_explorer(filepath)
+    reveal_in_explorer(filepath)
 
 
 def scan_kits_info(path: str) -> KitsInfo:

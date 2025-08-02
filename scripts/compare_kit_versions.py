@@ -101,16 +101,31 @@ def compare_kits(kits_local: KitsInfo, kits_comparable: KitsInfo) -> dict[str, K
             comparison[name].kit_comparable = ('None', 0, '')
             continue
 
-        if kits_local[name][0] > kits_comparable[name][0]:
-            comparison[name].action = EXPORT
-            comparison[name].kit_local = kits_local[name]
-            comparison[name].kit_comparable = kits_comparable[name]
-            continue
-        if kits_local[name][0] < kits_comparable[name][0]:
-            comparison[name].action = IMPORT
-            comparison[name].kit_local = kits_local[name]
-            comparison[name].kit_comparable = kits_comparable[name]
-            continue
+        try:
+            if list(map(int, kits_local[name][0].split('.'))) > list(map(int, kits_comparable[name][0].split('.'))):
+                comparison[name].action = EXPORT
+                comparison[name].kit_local = kits_local[name]
+                comparison[name].kit_comparable = kits_comparable[name]
+                continue
+        except ValueError:
+            if kits_local[name][0] > kits_comparable[name][0]:
+                comparison[name].action = EXPORT
+                comparison[name].kit_local = kits_local[name]
+                comparison[name].kit_comparable = kits_comparable[name]
+                continue
+
+        try:
+            if list(map(int, kits_local[name][0].split('.'))) < list(map(int, kits_comparable[name][0].split('.'))):
+                comparison[name].action = IMPORT
+                comparison[name].kit_local = kits_local[name]
+                comparison[name].kit_comparable = kits_comparable[name]
+                continue
+        except ValueError:
+            if kits_local[name][0] < kits_comparable[name][0]:
+                comparison[name].action = IMPORT
+                comparison[name].kit_local = kits_local[name]
+                comparison[name].kit_comparable = kits_comparable[name]
+                continue
 
         if float(kits_local[name][1]) > float(kits_comparable[name][1]):
             comparison[name].action = EXPORT
