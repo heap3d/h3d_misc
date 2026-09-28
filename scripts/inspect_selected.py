@@ -8,7 +8,9 @@
 # ================================
 
 import modo
+
 from h3d_utilites.scripts.h3d_debug import h3dd, prints, replace_file_ext
+from h3d_utilites.scripts.h3d_utils import reveal_in_explorer
 
 INSPECT_LOG = '_inspect.log'
 
@@ -29,6 +31,7 @@ def inspect_graphs(items: list[modo.Item]):
 def main():
     selected_items = modo.Scene().selected
     inspect_graphs(selected_items)
+    reveal_in_explorer(h3dd.log_path)
 
 
 if __name__ == '__main__':
